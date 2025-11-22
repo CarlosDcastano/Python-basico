@@ -24,10 +24,10 @@
 
 #TODO: SINTAXIS
 
-try:                            #? Primero empleamos la palabra try para encapsular el código normal de nuestra app
-    print(10 / 0)               #? Este es el código de nuestra app.                             
-except Exception as e:          #? Si hay un error en ese código capturado en el try, dale manejo con esta excepción            
-    print(f"Hay un error: {e}") #? una vez manejado, muéstra un mensaje confirmando el error 
+# try:                            #? Primero empleamos la palabra try para encapsular el código normal de nuestra app
+#     print(10 / 0)               #? Este es el código de nuestra app.                             
+# except Exception as e:          #? Si hay un error en ese código capturado en el try, dale manejo con esta excepción            
+#     print(f"Hay un error: {e}") #? una vez manejado, muéstra un mensaje confirmando el error 
                                         #?El as e: en nuestro código se usa para guardar el error en una variable
                                         #? y poder tener más detalles de dicho error usando dicha variable. 
 
@@ -61,3 +61,80 @@ except Exception as e:          #? Si hay un error en ese código capturado en e
 # AssertionError	    #? Falla en una declaración assert.
 # KeyboardInterrupt	    #? Interrupción del programa por el usuario (Ctrl+C).
 # SystemExit	        #? Solicitud para salir del intérprete de Python.
+
+#! Excepciones que son muy comunes y probablemente sí usarás en tu diaria programación:
+
+#####################TODO: ValueError
+
+#? Al manejar entradas del usuario o convertir datos (ej. de cadenas a números).
+#! Frecuencia: Alta.
+#? Ejemplo típico: Validar que el usuario ingrese un número.
+
+# try:
+#     variable = int(input("Por favor ingrese un número"))  #? Si el usuario ingresa algo diferente a un entero
+# except ValueError:                                        #? se captura el error y se muestra el mensaje
+#     print(f"El valor ingresado debe ser un número")
+
+#####################TODO: TypeError
+
+#? Al realizar operaciones con tipos incompatibles (ej. sumar una cadena con un número).
+#! Frecuencia: Moderada.
+#? Ejemplo típico: Procesar datos que vienen de múltiples fuentes.
+
+# try:
+#     resultado = 5 + "hola"             #? No se puede sumar un entero con una cadena
+# except TypeError as e:
+#     print(f"Error de tipo: {e}")       #? ---> Error de tipo: unsupported operand type(s) for +: 'int' and 'str'
+
+#####################TODO: ZeroDivisionError
+
+#? Al realizar divisiones y no validar previamente que el divisor no sea cero.
+#!Frecuencia: Moderada.
+#? Ejemplo típico: Calcular promedios o tasas en bases de datos o estadísticas.
+
+# try:
+#     numero = 10
+#     divisor = int(input("Ingresa el divisor: "))  #? El usuario ingresa 0
+#     resultado = numero / divisor
+#     print(f"El resultado es {resultado}")
+# except ZeroDivisionError as e:
+#     print(f"Error: No se puede dividir por cero. Detalles: {e}")
+
+#####################TODO: IndexError
+
+#? Al trabajar con listas y no validar si el índice solicitado existe.
+#! Frecuencia: Alta.
+#? Ejemplo típico: Acceder a elementos de una lista de forma dinámica.
+
+# try:
+#     lista = ["manzana", "banana", "cereza"]
+#     indice = int(input("Ingresa un índice de la lista: "))  #? El usuario ingresa 5, el cual no existe en la lista
+#     print(f"El elemento es: {lista[indice]}")
+# except IndexError as e:
+#     print(f"Error: Índice fuera de rango. Detalles: {e}")
+
+#####################TODO: KeyError
+
+#? Al trabajar con diccionarios y no validar si una clave está presente.
+#! Frecuencia: Alta.
+#? Ejemplo típico: Procesar datos JSON o estructuras anidadas.
+
+# try:
+#     diccionario = {"nombre": "Juan", "edad": 25}
+#     clave = input("Ingresa la clave que deseas buscar: ")  #? El usuario ingresa "altura", dicha clave no existe
+#     print(f"El valor es: {diccionario[clave]}")
+# except KeyError as e:
+#     print(f"Error: La clave '{e}' no existe en el diccionario.")
+
+##################### TODO: FileNotFoundError
+
+#? Al intentar abrir archivos que podrían no existir.
+#! Frecuencia: Alta (si trabajas con archivos).
+#? Ejemplo típico: Leer configuraciones o datos desde archivos externo
+
+# try:
+#     archivo = open("archivo_inexistente.txt", "r")  #? Archivo inexistente
+#     contenido = archivo.read()
+#     print(contenido)
+# except FileNotFoundError as e:
+#     print(f"Error: No se encontró el archivo. Detalles: {e}")

@@ -24,7 +24,7 @@
 #?               Queremos validar si un usuario ingresa el correo correcto guardado en una base de datos
 
 # usuario = "carlosmau@hotmail.com" #? Se creó un usuario manualmente y se guarda en la base de datos
-# ingreso = int(input("Por favor ingrese el usuario")) #? Se pide al cliente ingresar el usuario
+# ingreso = input("Por favor ingrese el usuario")) #? Se pide al cliente ingresar el usuario
 
 # if ingreso == usuario: #? Aquí se da una condición, si el cliente ingresó el mismo correo que hay en usuario
 #     print("Acceso concedido") #? Si es verdadero, es decir, sí es el mismo usuario, se muestra el mensaje
@@ -35,7 +35,7 @@
 #?          Si lo dejamos así, solo con el if, el código no haría nada, para que haga algo acuando la condición
 #?          no se cumple, debemos poner la palabra else o elif, cuando tenemos más de una condición por evaluar,
 #TODO:      Ejemplo práctico:
-#?              Ahora nuestro cliente debe escribirtanto el usuario como la contraseña y debe validarse 
+#?              Ahora nuestro cliente debe escribir tanto el usuario como la contraseña y debe validarse 
 #?              si tiene acceso o no, si son correctos ambos datos, debe mostrar Acceso concedido, si el usuario es 
 #?              incorrecto debe mostrar, usuario no existe. Si el usuario es correcto, 
 #?              pero la contraseña incorrecta, debe mostrar "COntraseña incorrecta"
